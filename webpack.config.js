@@ -4,7 +4,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: {
+    // IMPORTANT: i want to name entrypoint exact "index.css"
+    index: "./src/index.ts",
+  },
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
@@ -56,7 +59,8 @@ module.exports = {
       cacheGroups: {
         // IMPORTANT: this causes "ERROR in SplitChunksPlugin Cache group "styles" conflicts with existing chunk..." during webpack serve
         styles: {
-          name: "main",
+          // IMPORTANT: i want to name css file exact "index.css"
+          name: "index",
           type: "css/mini-extract",
           chunks: "all",
           enforce: true,
