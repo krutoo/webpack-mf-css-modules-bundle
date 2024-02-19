@@ -56,7 +56,7 @@ module.exports = {
       cacheGroups: {
         // IMPORTANT: this causes "ERROR in SplitChunksPlugin Cache group "styles" conflicts with existing chunk..." during webpack serve
         styles: {
-          name: (module, chunks) => chunks[0].runtime,
+          name: "main",
           type: "css/mini-extract",
           chunks: "all",
           enforce: true,
